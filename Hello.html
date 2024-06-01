@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funny Interaction</title>
+<style>
+  body {
+    text-align: center;
+    margin-top: 100px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0; /* Light grey background */
+  }
+  .question {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border: none; /* Remove default border */
+    position: relative; /* Needed for absolute positioning of the no-button */
+  }
+  .yes-button {
+    background-color: #007bff; /* Blue background for Yes button */
+    color: white; /* White text for contrast */
+  }
+  .yes-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  .no-button {
+    background-color: #ff4d4d; /* Red background for No button */
+    color: white; /* White text for contrast */
+  }
+  .no-button:hover {
+    animation: pop-in 0.5s ease;
+  }
+  @keyframes pop-in {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="question">Do you like me?</div>
+<button class="button yes-button" onclick="showEmoji()">Yes</button>
+<button class="button no-button" onclick="moveButton(this)">No</button>
+
+<script>
+  function showEmoji() {
+    document.querySelector('.yes-button').innerHTML = '😊'; // Cute emoji appears when "Yes" is clicked
+  }
+
+  function moveButton(button) {
+    // Randomly position the no-button on the screen
+    button.style.position = 'absolute';
+    button.style.top = Math.random() * window.innerHeight + 'px';
+    button.style.left = Math.random() * window.innerWidth + 'px';
+  }
+</script>
+
+</body>
+</html>
